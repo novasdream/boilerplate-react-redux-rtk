@@ -1,0 +1,52 @@
+// eslint-disable-next-line import/no-default-export
+module.exports = (plop) => {
+    plop.setGenerator('component', {
+      description: 'Create a new component',
+      prompts: [
+        {
+          type: 'input',
+          name: 'name',
+          message: 'Name of the component?',
+          validate: (value) => {
+            if (/.+/.test(value)) {
+              return true
+            }
+            return 'The name is required'
+          },
+        },
+        {
+          type: 'input',
+          name: 'feature',
+          message: 'Name of feature to the component?',
+          validate: (value) => {
+            if (/.+/.test(value)) {
+              return true
+            }
+            return 'The name of feature is required'
+          },
+        },
+      ],
+      actions: [
+        {
+          type: 'add',
+          path: 'src/features/{{properCase feature}}/components/{{properCase name}}/index.ts',
+          templateFile: '.plop/templates/index.ts.hbs',
+        },
+        {
+          type: 'add',
+          path: 'src/features/{{properCase feature}}/components/{{properCase name}}/{{properCase name}}.tsx',
+          templateFile: '.plop/templates/component.tsx.hbs',
+        },
+        {
+          type: 'add',
+          path: 'src/features/{{properCase feature}}/components/{{properCase name}}/{{properCase name}}.stories.tsx',
+          templateFile: '.plop/templates/stories.tsx.hbs',
+        },
+        {
+          type: 'add',
+          path: 'src/features/{{properCase feature}}/components/{{properCase name}}/{{properCase name}}.test.tsx',
+          templateFile: '.plop/templates/test.tsx.hbs',
+        },
+      ],
+    })
+  }

@@ -1,0 +1,11 @@
+import { render, screen } from '@testing-library/react'
+
+import { {{pascalCase name}} } from '.'
+
+describe('<{{pascalCase name}} />', () => {
+  it('renders', () => {
+    render(<{{pascalCase name}} title='Example'/>)
+
+    expect(screen.getByRole('heading', { name: /footercurriculum/i })).toBeInTheDocument()
+  })
+})

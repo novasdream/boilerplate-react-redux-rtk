@@ -1,0 +1,1 @@
+export * from 'features/curriculum/components/HeaderCurriculum'
